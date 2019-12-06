@@ -1,0 +1,26 @@
+\chapter{Conclusion and recommendation}
+
+\section{Conclusion}
+This study focused on the simulation of buoyancy-driven circulating bubbly flow applied in electrochemical cells. To simplify the modelling, we excluded the electrochemistry modelling, only the current density is used as an input parameter to control the gas evolving rate. 
+
+First, a bubbly flow model proposed by Wedin et al. \cite{Wedin2001} was used to model a buoyancy-driven bubbly flow in a vertical channel to reproduce the experimental data from Boissonneau et al. \cite{Boissonneau2000} and simulation results from Wedin et al. The purpose of reproducing the data from various literature is to prove the validity of the numerical model used in this study. The results from the simulation in this work matches well with the experimental data and simulation from literature.
+
+Then, the same bubbly flow model is used to model the buoyancy-driven bubbly flow in a circulating channel. Besides the geometry, one difference between two simulations is that gases are evolved from both sides of the wall in the vertical channel, while in the circulating channel gases are only evolved from the right wall of the riser channel. Partly because of this difference, backflow is found in the top region of the riser channel in the circulating flow.
+
+A parametric study was done in the circulating channel. 2D velocity contours, velocity and volume fraction profiles were given. The results of bubble plume thickness as functions of channel gap and current density were plotted. It is found that both channel gap and current density only weakly influences the bubble plume thickness when the channel width is small. As channel width increases, the bubble plume thickness converges to a single value regardless of the current density and the channel gap. Material properties and bubble diameter were found capable of influencing the bubble plume thickness. However, as these parameters are not the main interest of this study, the relevant results were not presented. 
+
+Based on the velocity profiles given under various conditions, an analytical solution of velocity profile across the channel is given by Haverkort \cite{Haverkort}; it is found that the analytical solution could decently estimate the velocity profile when the channel width is relatively small ($<0.6 \, \mathrm{cm}$).
+
+Circulating velocity as a function of riser channel width was given. As the channel width increases, the circulating velocity first increases, then from $W = 2 \, \mathrm{cm}$ it starts to decrease. While the analytical solution of Poiseuille flow can estimate circulating velocity change in narrow channels, an alternative analytical solution was given to estimate the decreasing velocity trend in wider channels.
+
+\section{Recommendation}
+
+\begin{itemize}
+    \item One of the challenges in modelling gas evolving process is the lack of information about the volume fraction in the near-wall region. The bubbly flow used in this study does not require information about volume fraction at the wall, but it does not mean the iteratively solved value is physically true. To go one step further, we need more information about the volume fraction profile in the channel. Currently, very few relevant experimental data can be found in the literature; part of the reason is that collecting reliable data of local volume fraction is very difficult.
+    \item Using turbulent model could decently estimate the volume fraction profile across the channel with high inlet velocity. However, it is not clear at which value of $\mathrm{Re}$ the flow will transit into turbulent when the bubbles are involved. It is something worth further investigation through experiment.
+    \item The coalescence barrier model proposed by Kreysa \cite{Kreysa1985} was tested in the model, but it is found that using such a model could cause the solver to fail to converge (see Appendix \ref{appendixc}). It is worth trying the coalescence model with different settings in the solver or other CFD solvers like OpenFOAM.
+    \item The coupling with electrochemistry model was not done in this work. It is a topic worth investigation, but if the interests are mainly on the hydrodynamic side, using a model with electrochemistry simplified might be more practical, as there are still many fundamental factors concerning the interphase forces and bubble interaction behaviour we do not know well enough yet.
+\end{itemize}
+
+
+
